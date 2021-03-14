@@ -2,33 +2,12 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage('Git Checkout') {
             steps {
-                echo 'Hello World'
+                git branch: 'main', url: 'https://github.com/mdrajibkhan/jenkinsfile_project.git'
             }
        
        }
        
-       stage('Build') {
-            steps {
-                echo 'Building'
-                deploy contextPath: '/home/jenkins', war: '"**/*.war"'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing'
-            }
-        }
-        stage('Release') {
-            steps {
-                echo 'Releasing'
-            }
-        }
     }
 }
